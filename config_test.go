@@ -26,7 +26,7 @@ func TestSet(t *testing.T) {
 		t.Errorf("expected value to be '%s', instead got '%s'", v, result)
 	}
 
-	err = os.Unsetenv(fullKey)
+	err = conf.Unset(k)
 	if err != nil {
 		t.Error(err)
 	}
@@ -49,7 +49,7 @@ func TestGet(t *testing.T) {
 		t.Error("expected value to be '%s', instead got '%s'", v, result)
 	}
 
-	err = os.Unsetenv(fullKey)
+	err = conf.Unset(k)
 	if err != nil {
 		t.Error(err)
 	}
@@ -74,7 +74,6 @@ func TestUnset(t *testing.T) {
 
 	if os.Getenv(fullKey) != "" {
 		t.Errorf("expected %s environment variable to be unset", fullKey)
-		os.Unsetenv(fullKey)
 	}
 }
 
@@ -103,9 +102,6 @@ func TestRequire(t *testing.T) {
 	for _, key := range keys {
 		if err := conf.Unset(key); err != nil {
 			t.Error(err)
-
-			fullKey := fmt.Sprintf("%s_%s", ConfigTestPrefix, key)
-			os.Unsetenv(fullKey)
 		}
 	}
 }

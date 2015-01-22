@@ -30,9 +30,12 @@ func (c Config) Set(key, value string) error {
 	return os.Setenv(fmt.Sprintf("%s_%s", c.prefix, key), value)
 }
 
-// Unset unsets the underlying environment variable.
+// Unset empties the underlying environment variable.
+// Ideally we'd be able to use os.Unsetenv() however,
+// it's only been available since Go 1.4.
 func (c Config) Unset(key string) error {
-	return os.Unsetenv(fmt.Sprintf("%s_%s", c.prefix, key))
+	// os.Unsetenv is only available in Go 1.4+
+	return c.Set(key, "")
 }
 
 // Require checks for the existence of each provided key.
