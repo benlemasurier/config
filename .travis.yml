@@ -17,4 +17,5 @@ script:
 
   $HOME/gopath/bin/goveralls -coverprofile=coverage.out -service=travis-ci -repotoken $COVERALLS_TOKEN
 
-secure: "B7SZ/mvc7sHZWaMTDKpXzwT3x7qHrjWcknjZbmjeHb24HAxIlry7MQIhKAko0R81oRYRHQ7Kj3jIhbBwJqpFOef0reXsN0tCU2dO5R8PFG9rlD0nKHZashK5NXngYChYUJN5wKf8kU9poV62LBdcMLP1V5jgVtRtTDMl1pnEa6A="
+env:
+  - secure: "B7SZ/mvc7sHZWaMTDKpXzwT3x7qHrjWcknjZbmjeHb24HAxIlry7MQIhKAko0R81oRYRHQ7Kj3jIhbBwJqpFOef0reXsN0tCU2dO5R8PFG9rlD0nKHZashK5NXngYChYUJN5wKf8kU9poV62LBdcMLP1V5jgVtRtTDMl1pnEa6A="
