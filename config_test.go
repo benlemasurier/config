@@ -46,7 +46,7 @@ func TestGet(t *testing.T) {
 
 	result := conf.Get(k)
 	if result != v {
-		t.Error("expected value to be '%s', instead got '%s'", v, result)
+		t.Errorf("expected value to be '%s', instead got '%s'", v, result)
 	}
 
 	err = conf.Unset(k)

@@ -7,6 +7,8 @@ import (
 	"strings"
 )
 
+// Config is a convenience library for interacting with the
+// system environment as a configuration store.
 type Config struct {
 	// environment variable prefix
 	prefix string
